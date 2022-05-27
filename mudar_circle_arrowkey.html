@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>treino</title>
+        <style></style>
+    </head>
+    <body>
+
+
+
+        <canvas width="600" height="400"></canvas><br>
+        <script>
+       var tela = document.querySelector("canvas");
+       var pincel = tela.getContext("2d");
+       pincel.fillStyle="lightgray";
+       pincel.fillRect(0,0,600,400);
+       function drawCircle(x,y,raio){
+       pincel.fillStyle="yellow";
+       pincel.beginPath();
+       pincel.arc(x,y,raio,0,2*Math.PI);
+       pincel.fill();
+       } 
+       var esquerda = 37;
+    var cima = 38;
+    var direita = 39;  // são os códigos do teclado
+    var baixo = 40;
+    var taxaIncremento = 10;
+       var x = 20;
+       var y = 20
+        function animation(){
+       pincel.clearRect(0,0,600,400);
+        drawCircle(x,y,20);
+       }
+       setInterval(animation, 1);
+       function letraTeclado(evento){
+        if(evento.keyCode==cima){
+            y=y-taxaIncremento
+        }
+        else if(evento.keyCode==direita){
+            x=x+taxaIncremento
+        }
+        else if(evento.keyCode==esquerda){
+            x=x-taxaIncremento
+        }
+        else if(evento.keyCode==baixo){
+            y=y+taxaIncremento
+        }
+       }
+       document.onkeydown = letraTeclado;
+      
+
+    </script>
+    </body>
+</html>
